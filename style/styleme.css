@@ -1,0 +1,31 @@
+#body {
+	background-color:black;
+	color: white;
+}
+
+.anchor {
+	color:blue;
+	text-decoration: none
+}
+
+h2,dt {
+	color:#ffd300;
+}
+
+b.highlight {
+	font-style: italic;
+	color:#ffd300;
+}
+
+div#validator {
+	text-align:right;
+	margin:30px
+}
+
+a.anchor:hover {
+	text-decoration: underline;
+}
+
+P:first-letter {
+    font-size: 1.5em;
+}
