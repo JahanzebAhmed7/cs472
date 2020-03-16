@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title> Servlet Quiz</title>
+    <style>
+        .answer {
+            color: white;
+        }
+
+        .question, h1{
+            font-weight: bold;
+			color:#ffd300
+        }
+    </style>
+</head>
+<body style="background-color:black">
+<h1> Answers for Servlet Quiz</h1>
+<ol>
+    <li><p class="question">What is the difference between a web server and a web container?</p>
+        <p class="answer">  Web Container or Servlet Container or Servlet Engine : is used to handles the lifecycle for servlets, JSP. It is a part of the web server.<br>
+            Web Server or HTTP Server: Refers to an execution infrastructure that handles HTTP requests and responses sent by a client.</p>
+    </li>
+
+    <li><p class="question">What is a servlet?</p>
+        <p class="answer">A servlet is a Java program that runs on a Web server. Servlet is processed on the server rather than a client's machine.
+            Servlets are often run when the user clicks a link, submits a form, or performs another type of action on a website.
+            Java Servlets are server-side Java program modules that process and answer client requests and implement the servlet interface.
+            It helps in enhancing Web server functionality with minimal overhead, maintenance and support.
+            A servlet acts as an intermediary between the client and the server. As servlet modules run on the server, they can receive and respond to requests made by the client.
+            Request and response objects of the servlet offer a convenient way to handle HTTP requests and send words data back to the client.</p>
+    </li>
+    <li>
+        <p class="question">How do web servers and web containers interact with servlets?
+    </p>
+        <p class="answer">Servlet is any class that extends HttpServlet or GenericServlet.<br>
+            Whenever a client sends a request to the J2EE application server for a particular servlet, the J2EE Application server passes the request to the Web container.<br>
+            The Web container checks whether an instance of the requested servlet exists.<br>
+            In case the servlet instance does not exist, the Web container creates an instance of the servlet and initializes it. Then with the servlet instance starts processing the request.<br>
+            If the servlet instance exists then the Web container delegates the request to the servlet, which process the client request and sends back the response.<br>
+            The Web container manages a servlet by invoking various life cycle methods. These methods are defined in the Servlet API.</p>
+    </li>
+    <li><p class="question">Who creates request objects?
+    </p>
+        <p class="answer">The request object is an instance of a javax.servlet.http.HttpServletRequest object.
+            Each time a client requests a page the Container creates a new object to represent that request.</p>
+    </li>
+    <li><p class="question">What are the states in the servlet lifecycle?</p>
+        <p class="answer">The javax.servlet.Servlet interface defines the life cycle methods of servlet such as init(), service() and destroy().
+            The Web container invokes the init(), service() and destroy() methods of a servlet during its life cycle.
+            The sequence in which the Web container calls the life cycle methods of a servlet is:</p>
+    </li>
+    </li>
+    <li><p class="question">Who calls init and when?</p>
+        <p class="answer">
+            The init() method is called by Servlet Container before invoking the service method. In Servlet lifecycle, int method is called only once.
+        </p>
+    </li>
+    <li><p class="question">Which of init, service, and doGet should you override?</p>
+        <p class="answer">
+            init()- we can Possibly override If you have initialization code (connecting to a database) then you will override the init() method
+            service()-No, Very unlikely. We should NOT override the service() method.
+            doGet() and doPost()- we should Always override at least ONE of doGet() or doPost()
+            We can call each other to cover both options, for example doGet() could call doPost() method which has the code.
+        </p>
+    </li>
+
+    <li><p class="question">In what sense are servlets multi-threaded?</p>
+        <p class="answer">
+            Servlets are intrinsically multithreaded.This means a single instance can be accessed by more than one thread.<br>
+            Being multithreaded also means that multiple requests to the same servlet may be executed at the same time.
+            Therefore, we need to take concurrency into consideration when implementing servlet.
+        </p>
+
+    </li>
+    <li><p class="question">What are the implications of this for servlet instance variables? </p>
+        <p class="answer">
+            If you absolutely can't deal with synchronizing, you can declare that your servlet &amp;quot;
+            implements SingleThreadModel&amp;quot;. This empty interface tells the web server to only send one client request at a time into your servlet.
+            From the JavaDoc: &amp;quot; If the target servlet is flagged with this interface, the servlet programmer is guaranteed that no two threads will execute concurrently the service method of that servlet.
+            This guarantee is ensured by maintaining a pool of servlet instances for each such servlet, and dispatching each service call to a free servlet.
+            In essence, if the servlet implements this interface, the servlet will be thread safe.&amp;quot;
+            Note that this is not an ideal solution, since performance may suffer (depending on the size of the instance pool), plus it's more difficult to share data across instances than within a single instance.
+        </p>
+    </li>
+
+</ol>
+
+
+
+
+
+
+
+</body>
+</html>
